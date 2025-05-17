@@ -1,0 +1,675 @@
+/* frontend/src/index.css */
+
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- Global Resets & Base Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #eef2f7; /* Lighter, soft blue-gray background */
+  color: #34495e; /* Darker text color for better readability */
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased; /* Smoother fonts */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Navigation Styling --- */
+nav {
+  background: linear-gradient(90deg, #4A00E0, #8E2DE2); /* Vibrant purple gradient */
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Make nav sticky */
+  top: 0;
+  z-index: 1000;
+}
+
+nav .nav-brand {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem; /* Larger brand name */
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 20px; /* Spacing between nav links */
+}
+
+nav a { /* General style for NavLink */
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+nav a:hover,
+nav a.active { /* For NavLink active state */
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+nav .user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav .user-info span {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+nav .logout-button {
+  background-color: #e74c3c; /* A distinct red for logout */
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+nav .logout-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+
+/* --- Main Content Area --- */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1.5rem; /* Add padding around the form container */
+}
+
+/* --- Auth Form Container (Login/Signup) --- */
+.auth-container {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem; /* Generous padding */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Prominent shadow */
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.auth-container h2 {
+  color: #2c3e50; /* Dark blue-gray for headings */
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+/* --- Form Elements --- */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem; /* Increased gap between form groups */
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Space between label and input */
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #555e68; /* Slightly softer label color */
+  font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 0.9rem 1.1rem; /* Comfortable padding */
+  border: 1px solid #ced4da; /* Standard border color */
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #495057;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fdfdff; /* Slightly off-white input background */
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group input[type="password"]::placeholder,
+.form-group input[type="date"]::placeholder,
+.form-group input[type="tel"]::placeholder {
+    color: #a0a8b1; /* Lighter placeholder text */
+    font-weight: 300;
+}
+
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="tel"]:focus {
+  outline: none;
+  border-color: #8E2DE2; /* Primary gradient color on focus */
+  box-shadow: 0 0 0 3.5px rgba(142, 45, 226, 0.15); /* Softer focus ring */
+}
+
+/* --- Buttons --- */
+.auth-button {
+  background: linear-gradient(90deg, #4A00E0, #8E2DE2); /* Match nav gradient */
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600; /* Bolder button text */
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.8rem;
+  box-shadow: 0 5px 15px rgba(142, 45, 226, 0.25);
+}
+
+.auth-button:hover {
+  background: linear-gradient(90deg, #3c00b3, #7b1fc9); /* Darker gradient on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(142, 45, 226, 0.35);
+}
+
+.auth-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(142, 45, 226, 0.3);
+}
+
+.auth-button:disabled {
+  background: #c7cdd3; /* Greyed out for disabled */
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  color: #777;
+}
+
+/* --- Form Link (Switch between Login/Signup) --- */
+.form-switch-link {
+  margin-top: 1.8rem;
+  font-size: 0.95rem;
+  color: #555e68;
+}
+
+.form-switch-link a {
+  color: #6A11CB; /* Primary gradient color for the link */
+  font-weight: 600; /* Bolder link */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form-switch-link a:hover {
+  color: #2575FC; /* Secondary gradient color on hover */
+  text-decoration: underline;
+}
+
+/* --- Error and Success Messages --- */
+.message {
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left; /* Align text left for better readability */
+  border-left-width: 5px;
+  border-left-style: solid;
+}
+.error-message {
+  background-color: #ffebee; /* Lighter red background */
+  color: #c62828; /* Darker red text */
+  border-left-color: #c62828; /* Red accent border */
+}
+
+.success-message {
+  background-color: #e8f5e9; /* Lighter green background */
+  color: #2e7d32; /* Darker green text */
+  border-left-color: #2e7d32; /* Green accent border */
+}
+
+/* --- Home Page Basic Style --- */
+.home-container {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 800px; /* Wider for home page content */
+  margin: 2rem auto;
+}
+
+.home-container h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.home-container p {
+    font-size: 1.1rem;
+    color: #555e68;
+    line-height: 1.7;
+}
+/* --- General Page Container --- */
+.page-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --- Course List Page --- */
+.courses-page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+.courses-page-header h1 {
+  font-size: 2.5rem;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+.courses-page-header p {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.course-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* --- Course Card --- */
+.course-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* For consistent height if content varies */
+  flex-direction: column;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+.course-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Make link fill card */
+}
+.course-card-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.course-card-content {
+  padding: 1rem 1.2rem;
+  flex-grow: 1; /* Allow content to push footer down */
+  display: flex;
+  flex-direction: column;
+}
+.course-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.5rem;
+  min-height: 2.4em; /* Approx 2 lines */
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.course-card-instructor {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+}
+.course-card-description {
+  font-size: 0.9rem;
+  color: #495057;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes footer down */
+  line-height: 1.4;
+  min-height: 4.2em; /* Approx 3 lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.course-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  padding-top: 0.5rem; /* Space above footer */
+  border-top: 1px solid #eee; /* Separator if needed */
+  margin-top: auto; /* Pushes to bottom */
+}
+.course-card-price {
+  font-weight: 600;
+  color: #007bff;
+}
+.course-card-rating {
+  color: #fd7e14;
+}
+
+/* --- Course Details Page --- */
+.course-details-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+  border-radius: 8px;
+  overflow: hidden; /* If header has background image */
+}
+
+.course-details-header {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: left;
+}
+.course-details-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.course-instructor {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+.course-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.course-details-body {
+  display: flex;
+  flex-wrap: wrap; /* For responsiveness */
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.course-main-content {
+  flex: 3; /* Takes up more space */
+  min-width: 300px; /* For responsiveness */
+}
+.course-main-content h2 {
+  font-size: 1.8rem;
+  color: #343a40;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+}
+.course-main-content p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #495057;
+}
+.learn-list, .course-module ul {
+  list-style: none;
+  padding-left: 0;
+}
+.learn-list li {
+  margin-bottom: 0.6rem;
+  color: #333;
+  font-size: 1.05rem;
+}
+.course-module {
+  margin-bottom: 1.5rem;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+}
+.course-module h3 {
+  font-size: 1.3rem;
+  color: #4A00E0;
+  margin-bottom: 0.7rem;
+}
+.course-module li {
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #e0e0e0;
+}
+.course-module li:last-child {
+  border-bottom: none;
+}
+
+
+.course-sidebar {
+  flex: 1;
+  min-width: 280px; /* For responsiveness */
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  align-self: flex-start; /* Stick to top */
+  position: sticky; /* Optional: make it sticky */
+  top: 80px; /* Adjust if nav is sticky and has height */
+}
+.sidebar-thumbnail {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.course-price-sidebar {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4A00E0;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.button-primary, .button-secondary, .button-link {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 0.8rem; /* Spacing between buttons */
+}
+.button-primary {
+  background-color: #6A11CB;
+  color: white;
+}
+.button-primary:hover {
+  background-color: #5e0ead;
+}
+.button-secondary {
+  background-color: #e9ecef;
+  color: #343a40;
+  border: 1px solid #ced4da;
+}
+.button-secondary:hover {
+  background-color: #d3d9df;
+}
+.button-link {
+    color: #6A11CB;
+    background: none;
+    padding: 0.5rem 0;
+}
+.button-link:hover {
+    text-decoration: underline;
+}
+.full-width {
+  display: block;
+  width: 100%;
+}
+
+/* --- Assessment Page --- */
+.assessment-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+.assessment-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+.assessment-container .back-to-course-link {
+    display: block;
+    margin-bottom: 1.5rem;
+    color: #6A11CB;
+    text-decoration: none;
+    font-weight: 500;
+}
+.assessment-container .back-to-course-link:hover {
+    text-decoration: underline;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    height: 10px;
+    margin: 1rem 0 1.5rem;
+}
+.progress-bar {
+    height: 100%;
+    background-color: #4A00E0;
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out;
+}
+.assessment-container p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+.question-block {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+.question-block h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+.options-list {
+  list-style: none;
+  padding: 0;
+}
+.option-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-size: 1rem;
+}
+.option-item:hover {
+  background-color: #f0e9ff;
+  border-color: #8E2DE2;
+}
+.option-item.selected {
+  background-color: #D5C6FF; /* Light purple for selected */
+  border-color: #4A00E0;
+  font-weight: 500;
+}
+
+.assessment-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.button-submit {
+    background-color: #28a745; /* Green for submit */
+}
+.button-submit:hover {
+    background-color: #218838;
+}
+
+/* Assessment Results */
+.results-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.results-container h3 {
+    font-size: 1.5rem;
+    color: #4A00E0;
+    margin-bottom: 1rem;
+}
+.assessment-summary {
+    margin-top: 2rem;
+    text-align: left;
+}
+.summary-question {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
+.summary-question.correct {
+    background-color: #e8f5e9;
+    border-left-color: #2e7d32;
+}
+.summary-question.incorrect {
+    background-color: #ffebee;
+    border-left-color: #c62828;
+}
+.summary-question p {
+    text-align: left;
+    margin-bottom: 0.3rem;
+}
+.assessment-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
